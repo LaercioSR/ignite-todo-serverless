@@ -34,13 +34,25 @@ const serverlessConfiguration: AWS = {
       events: [
         {
           http: {
-            path: "todo/{id}",
+            path: "todos/{id}",
             method: "post",
             cors: true,
           },
         },
       ],
     },
+    listTodos: {
+      handler: "src/functions/listTodos.handler",
+      events: [
+        {
+          http: {
+            path: "todos/{id}",
+            method: "get",
+            cors: true
+          }
+        }
+      ]
+    }
   },
   package: { individually: false },
   custom: {
@@ -78,11 +90,19 @@ const serverlessConfiguration: AWS = {
               AttributeName: "id",
               AttributeType: "S",
             },
+            {
+              AttributeName: "user_id",
+              AttributeType: "S",
+            },
           ],
           KeySchema: [
             {
-              AttributeName: "id",
+              AttributeName: "user_id",
               KeyType: "HASH",
+            },
+            {
+              AttributeName: "id",
+              KeyType: "RANGE",
             },
           ],
         },

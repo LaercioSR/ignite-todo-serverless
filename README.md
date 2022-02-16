@@ -7,7 +7,7 @@
 Repository containing my solution to the challenge of creating an application using the serverless architecture of the Ignite track of Node.Js from [Rocketseat](https://www.rocketseat.com.br/).
 
 <h4 align="center">
- 🚧  Project in Progress...  🚧
+ ✅  Project Completed  ✅
 </h4>
 
 <p align="center">
@@ -18,7 +18,11 @@ Repository containing my solution to the challenge of creating an application us
 
 ## About
 
-Aplicação para geração de certificados, sendo desenvolvida em Node.Js utilizando a arquitetura serverless.
+Application for creating and listing all, being developed in Node.Js using serverless architecture.
+
+Challenge Details Link:
+
+[Challenge 01 - Building with serverless](https://www.notion.so/Desafio-01-Construindo-com-serverless-1fdde2c717a94f7aa077e746cb077bec1)
 
 ## How to Run
 
