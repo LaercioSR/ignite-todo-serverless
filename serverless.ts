@@ -3,7 +3,11 @@ import type { AWS } from "@serverless/typescript";
 const serverlessConfiguration: AWS = {
   service: "ignite-todo-serverless",
   frameworkVersion: "3",
-  plugins: ["serverless-esbuild"],
+  plugins: [
+    "serverless-esbuild",
+    "serverless-dynamodb-local",
+    "serverless-offline",
+  ],
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
@@ -24,7 +28,20 @@ const serverlessConfiguration: AWS = {
       },
     ],
   },
-  functions: {},
+  functions: {
+    createTodo: {
+      handler: "src/functions/createTodo.handler",
+      events: [
+        {
+          http: {
+            path: "todo/{id}",
+            method: "post",
+            cors: true,
+          },
+        },
+      ],
+    },
+  },
   package: { individually: false },
   custom: {
     esbuild: {
